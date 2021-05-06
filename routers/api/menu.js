@@ -1,7 +1,7 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-04-23 19:21:17
+ * @LastEditTime: 2021-05-06 11:17:23
  * @Description: 菜单
  */
 
@@ -27,7 +27,7 @@ router.post('/saveMenu', passport.authenticate("jwt", { session: false }), (req,
         req.body.name,
         req.body.url,
         req.body.icon,
-        req.body.parentId,
+        req.body.parentId ? req.body.parentId : null,
         req.body.level,
       ]
       db.query(menuSql.add, params, (err, result) => {
@@ -44,7 +44,7 @@ router.post('/saveMenu', passport.authenticate("jwt", { session: false }), (req,
 
 router.post('/updateMenu', passport.authenticate("jwt", { session: false }), (req, res) => {
   // 查询数据库中是否有当前菜单     
-  db.query(menuSql.queryByUrl, [req.body.url], (err, result) => {
+  db.query(menuSql.queryById, [req.body.id], (err, result) => {
     if (err) {
       errWrite(res, err.sqlMessage)
     }
