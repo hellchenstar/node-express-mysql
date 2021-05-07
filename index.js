@@ -1,11 +1,14 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-04-23 16:04:26
+ * @LastEditTime: 2021-05-07 10:45:51
  * @Description: file content
  */
 const express = require('express')
 const app = express()
+
+
+app.use(express.static('./dist'))
 
 // post请求必须
 app.use(express.urlencoded({ extended: false }))
