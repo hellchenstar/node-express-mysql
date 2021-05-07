@@ -1,7 +1,7 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-04-23 15:23:52
+ * @LastEditTime: 2021-05-07 16:47:28
  * @Description: file content
  */
 // 引入路由
@@ -82,7 +82,7 @@ router.post('/login', (req, res) => {
             role: obj.role
           }
           // jwt token加密
-          jwt.sign(rules, keys.secretKey, { expiresIn: 36000000000 }, (err, token) => {
+          jwt.sign(rules, keys.secretKey, { expiresIn: 3600 }, (err, token) => {
             if (err) throw err;
             let data = {
               account: obj.account,
