@@ -1,11 +1,11 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-04-21 16:39:21
+ * @LastEditTime: 2021-09-14 15:40:01
  * @Description: file content
  */
 
 module.exports = {
-  dbUrl: '39.97.254.142',
+  dbUrl: '139.129.101.158',
   secretKey: 'secret'
 }
