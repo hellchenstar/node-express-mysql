@@ -1,7 +1,7 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-04-23 15:23:11
+ * @LastEditTime: 2021-10-20 16:10:41
  * @Description: file content
  */
 
@@ -21,10 +21,10 @@ const jsonWrite = function (res, msg, data) {
   }
 }
 // 失败返回
-const errWrite = (res, msg) => {
+const errWrite = (res, err) => {
   res.status(200).json({
     code: 500,
-    msg: msg
+    msg: err
   })
 }
 

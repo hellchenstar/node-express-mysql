@@ -1,7 +1,7 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-09-14 17:39:45
+ * @LastEditTime: 2021-10-20 10:42:07
  * @Description: file content
  */
 const express = require('express')
@@ -30,7 +30,7 @@ app.use('/api/menu', menu)
 
 
 // 开启服务
-const port = process.env.port || 21009
+const port = process.env.port || 2888
 app.listen(port, () => {
   console.log(`服务运行成功,端口号：${port}`)
 })

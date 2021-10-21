@@ -1,7 +1,7 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-04-23 14:53:25
+ * @LastEditTime: 2021-10-20 14:36:19
  * @Description: file content
  */
 const JwtStrategy = require('passport-jwt').Strategy,

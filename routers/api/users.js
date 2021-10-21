@@ -1,7 +1,7 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-05-07 16:47:28
+ * @LastEditTime: 2021-10-21 13:26:38
  * @Description: file content
  */
 // 引入路由
@@ -67,10 +67,14 @@ router.post('/login', (req, res) => {
   const account = req.body.account
   const password = req.body.password
   db.query(userSql.queryByAccount, [account], (err, result) => {
+    // console.log("err",err)
+    // console.log("result",result)
     if (err) {
-      errWrite(res, err.sqlMessage)
+      errWrite(res, err)
+      return
     }
     // 查询库中是否有此账号，没有则提示未注册，有则匹配密码登录
+    
     if (result.length) {
       let obj = result[0]
       // 密码匹配
@@ -82,7 +86,7 @@ router.post('/login', (req, res) => {
             role: obj.role
           }
           // jwt token加密
-          jwt.sign(rules, keys.secretKey, { expiresIn: 3600 }, (err, token) => {
+          jwt.sign(rules, keys.secretKey, { expiresIn: 60 }, (err, token) => {
             if (err) throw err;
             let data = {
               account: obj.account,
