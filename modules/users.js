@@ -1,8 +1,8 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-04-23 14:48:52
- * @Description: file content
+ * @LastEditTime: 2022-02-07 11:51:09
+ * @Description:用户模块
  */
 const userSql = {
   // 用户
