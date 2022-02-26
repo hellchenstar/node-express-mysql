@@ -1,7 +1,7 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-05-06 11:17:23
+ * @LastEditTime: 2022-02-26 14:32:41
  * @Description: 菜单
  */
 
@@ -13,6 +13,7 @@ const { jsonWrite, errWrite } = require('../../unitls/unitls')
 
 const db = require('../../db')
 const menuSql = require('../../modules/menu')
+const { route } = require("express/lib/application")
 // 新增菜单
 router.post('/saveMenu', passport.authenticate("jwt", { session: false }), (req, res) => {
   // 查询数据库中是否有当前菜单     
@@ -77,6 +78,16 @@ router.get('/menuList', passport.authenticate("jwt", { session: false }), (req, 
       errWrite(res, err.sqlMessage)
     }
     jsonWrite(res, '', result)
+  })
+})
+
+// 删除菜单
+router.get('/delMenu',passport.authenticate('jwt',{session:false}),(req,res) => {
+  db.query(menuSql.delMenuById,[req.query.id],(err,result) => {
+    if(err) {
+      errWrite(res,err.sqlMessage)
+    }
+    jsonWrite(res,'删除成功','')
   })
 })
 module.exports = router

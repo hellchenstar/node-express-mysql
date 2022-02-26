@@ -1,7 +1,7 @@
 /*
  * @Author: chenx
  * @CreatedDate: Do not edit
- * @LastEditTime: 2021-04-23 19:21:46
+ * @LastEditTime: 2022-02-26 14:09:31
  * @Description: file content
  */
 const menuSql = {
@@ -14,7 +14,9 @@ const menuSql = {
   // 根据菜单url名称查找
   queryByUrl: 'select * from menu where url = ?',
   // 根据id查找
-  queryById: 'select * from menu where id = ?'
+  queryById: 'select * from menu where id = ?',
+  // 根据id删除
+  delMenuById: 'delete from menu where id = ?'
 }
 
 module.exports = menuSql
